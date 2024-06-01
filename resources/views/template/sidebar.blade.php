@@ -52,6 +52,32 @@
                                     </li>
                                     <!-- End::slide -->
                                     <!-- Start::slide__category -->
+                                    <li class="slide__category"><span class="category-name">User</span>
+                                    </li> <!-- End::slide__category -->
+                                    <!-- Start::slide -->
+                                    <li class="slide has-sub">
+                                        <a href="javascript:void(0);" class="side-menu__item">
+                                            
+                                            <i class="fa-regular fa-user fa-lg " style="opacity: .7" ></i>
+                                            <span class="side-menu__label" style="margin-left: 8px">User</span>
+                                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                                        </a>
+                                        <ul class="slide-menu child1"
+                                            style="position: relative; left: 0px; top: 0px; margin: 0px; transform: translate3d(134.4px, 183.2px, 0px);"
+                                            data-popper-placement="bottom">
+
+                                            <li class="slide">
+                                                <a href={{ url('/user') }} class="side-menu__item">Form
+                                                    User</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href={{ url('/userview') }} class="side-menu__item">Table User</a>
+                                            </li>
+
+                                        </ul>
+                                    </li> <!-- End::slide -->
+
+                                    <!-- Start::slide__category -->
                                     <li class="slide__category"><span class="category-name">Transaksi</span>
                                     </li> <!-- End::slide__category -->
                                     <!-- Start::slide -->
@@ -134,7 +160,8 @@
                                                     tingkatan kelas</a>
                                             </li>
                                             <li class="slide">
-                                                <a href="{{ url('tingkatankelasview') }}" class="side-menu__item">Table tingkatan
+                                                <a href="{{ url('tingkatankelasview') }}"
+                                                    class="side-menu__item">Table tingkatan
                                                     kelas</a>
                                             </li>
 
@@ -148,13 +175,14 @@
                                     </li>
                                     <!-- End::slide__category -->
                                     <!-- Start::slide -->
-                                    
-                                    
-                                    
+
+
+
                                     <!-- End::slide -->
-                                    
+
                                     <li class="slide">
-                                        <a href="{{ url('logout') }}" class="side-menu__item d-flex  align-items-center justify-content-center">
+                                        <a href="{{ url('logout') }}"
+                                            class="side-menu__item d-flex  align-items-center justify-content-center">
                                             <i class="side-menu__icon custom-sidebar-icon ri-logout-box-line"></i>
                                             <span class=" side-menu__label" style="padding-top: 9px">Logout</span>
                                         </a>

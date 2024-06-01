@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\TingkatanKelasController;
+use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,11 @@ Route::middleware('auth')->group(function(){
     Route::get('/tingkatankelasedit/{id}', [TingkatanKelasController::class, 'edit']);
     Route::post('/tingkatankelasupdate/{id}', [TingkatanKelasController::class, 'update']);
     Route::get('/tingkatankelasdelete/{id}', [TingkatanKelasController::class, 'delete']);
+  
+   
+
+    Route::get('/userview', [UserController::class, 'index']);
+    Route::get('/user', [UserController::class, 'create']);
 
     Route::get('/logout', [AuthController::class, 'logout']);
 
