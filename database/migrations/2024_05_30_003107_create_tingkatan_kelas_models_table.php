@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('tingkatan_kelas_models', function (Blueprint $table) {
             $table->id();
-            $table->string('kelas');
-            $table->string('jurusan');
+            $table->string('nama_kelas');
             $table->timestamps();
         });
     }

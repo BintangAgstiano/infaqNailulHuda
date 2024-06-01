@@ -10,8 +10,8 @@ class TingkatanKelasController extends Controller
 {
     public function index()
     {
-        $data=TingkatanKelasModel::get();
-        return view('tingkatanKelas.index',compact('data'));
+        $data = TingkatanKelasModel::get();
+        return view('tingkatanKelas.index', compact('data'));
     }
     public function create()
     {
@@ -21,10 +21,8 @@ class TingkatanKelasController extends Controller
     {
         $validator = Validator::make(request()->all(), [
             'kelas' => 'required',
-            'jurusan' => 'required'
         ], [
             'kelas.required' => 'Input kelas wajib di isi',
-            'jurusan.required' => 'Input jurusan wajib di isi',
         ]);
 
         if ($validator->fails()) {
@@ -32,11 +30,43 @@ class TingkatanKelasController extends Controller
         }
 
         TingkatanKelasModel::create([
-            'kelas' => request()->input('kelas'),
-            'jurusan' => request()->input('jurusan'),
+            'nama_kelas' => request()->input('kelas'),
         ]);
-      
 
+
+        return redirect('/tingkatankelasview');
+    }
+    public function edit($id)
+    {
+        $dataOld = TingkatanKelasModel::find($id);
+        if ($dataOld == null) {
+            return redirect()->back();
+        }
+        return view('tingkatanKelas.edit', compact("dataOld"));
+    }
+    public function update($id)
+    {
+        $validator = Validator::make(request()->all(), [
+            'kelas' => 'required',
+
+        ], [
+            'kelas.required' => 'Input kelas wajib di isi',
+
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator->errors());
+        }
+        TingkatanKelasModel::where("id", $id)->update([
+            'nama_kelas' => request()->input('kelas'),
+
+        ]);
+        return redirect('/tingkatankelasview');
+    }
+
+    public function delete($id)
+    {
+        TingkatanKelasModel::where("id", $id)->delete();
         return redirect('/tingkatankelasview');
     }
 }

@@ -154,7 +154,7 @@
                                     <!-- End::slide -->
                                     
                                     <li class="slide">
-                                        <a href="{{ url('auth') }}" class="side-menu__item d-flex  align-items-center justify-content-center">
+                                        <a href="{{ url('logout') }}" class="side-menu__item d-flex  align-items-center justify-content-center">
                                             <i class="side-menu__icon custom-sidebar-icon ri-logout-box-line"></i>
                                             <span class=" side-menu__label" style="padding-top: 9px">Logout</span>
                                         </a>

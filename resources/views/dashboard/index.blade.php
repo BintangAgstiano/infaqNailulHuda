@@ -64,7 +64,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h3 class="mb-2 fw-semibold fs-18">26</h3>
+                                        <h3 class="mb-2 fw-semibold fs-18">{{ count($data) }}</h3>
                                         <p class="text-muted fs-12 mb-0">Total kelas</p>
                 
                                     </div>

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <!-- End::header-element -->
-
+            <script src="https://kit.fontawesome.com/33886cee1c.js" crossorigin="anonymous"></script>
             <!-- Start::header-element -->
             <div class="header-element">
                 <!-- Start::header-link -->

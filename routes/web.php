@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\TingkatanKelasController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,16 +20,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[DashboardController::class,'view']);
 
-Route::get('/pemasukancreate',[PemasukanController::class,'create']);
-Route::get('/pemasukanview',[PemasukanController::class,'index']);
+Route::middleware('guest')->group(function(){
+    
+    Route::get('/login', [AuthController::class, 'auth'])->name('login');
+    Route::post('/authProses', [AuthController::class, 'authProses']);
 
-Route::get('/pengeluaran',[PengeluaranController::class,'create']);
-Route::get('/pengeluaranview',[PengeluaranController::class,'index']);
+});
 
-Route::get('/tingkatankelasview',[TingkatanKelasController::class,'index']);
-Route::get('/tingkatankelas',[TingkatanKelasController::class,'create']);
-Route::post('/tingkatankelas',[TingkatanKelasController::class,'store']);
 
-Route::get('/auth',[AuthController::class,'auth']);
+
+Route::middleware('auth')->group(function(){
+    Route::get('/', [DashboardController::class, 'view']);
+    Route::get('/pemasukancreate', [PemasukanController::class, 'create']);
+    Route::get('/pemasukanview', [PemasukanController::class, 'index']);
+    
+    Route::get('/pengeluaran', [PengeluaranController::class, 'create']);
+    Route::get('/pengeluaranview', [PengeluaranController::class, 'index']);
+    
+    Route::get('/tingkatankelasview', [TingkatanKelasController::class, 'index']);
+    Route::get('/tingkatankelas', [TingkatanKelasController::class, 'create']);
+    Route::post('/tingkatankelas', [TingkatanKelasController::class, 'store']);
+    Route::get('/tingkatankelasedit/{id}', [TingkatanKelasController::class, 'edit']);
+    Route::post('/tingkatankelasupdate/{id}', [TingkatanKelasController::class, 'update']);
+    Route::get('/tingkatankelasdelete/{id}', [TingkatanKelasController::class, 'delete']);
+
+    Route::get('/logout', [AuthController::class, 'logout']);
+
+
+});

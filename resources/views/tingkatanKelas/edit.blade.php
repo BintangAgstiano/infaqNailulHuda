@@ -5,24 +5,24 @@
         </div> <!-- Page Header Close --> <!-- Start::row-1 -->
         <div class="card custom-card">
             <div class="card-header justify-content-between">
-                <div class="card-title">Tambah Tingkatan Kelas</div>
-                <a href="{{ url('tingkatankelasview') }}" class="btn btn-primary btn-wave">Table Tingkatan Kelas</a>
+                <span class="fs-18 text-dark">Edit tingkatan kelas</span>
+                <a href="{{ url('tingkatankelasview') }}" class="btn btn-primary btn-wave">Kembali</a>
             </div>
             <div class="card-body">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ url('/tingkatankelasupdate/'.$dataOld['id']) }}" method="post" enctype="multipart/form-data">
                     @csrf
-                  
-                    <div class="mb-3">
-                        <label for="kelas" class="form-label fs-14 text-dark">Kelas</label>
-                        <input type="text" class="form-control" id="kelas" placeholder="" name="kelas"
-                            value="{{ old('kelas') }}">
-                        @error('kelas')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                   
+         
+                      
+                  <div class="mb-3">
+                      <label for="kelas" class="form-label fs-14 text-dark">Kelas</label>
+                      <input type="text" class="form-control" id="kelas" placeholder="" name="kelas"
+                          value={{ $dataOld['nama_kelas'] }}>
+                      @error('kelas')
+                          <div class="text-danger">
+                              {{ $message }}
+                          </div>
+                      @enderror
+                  </div>
         
                     <button class="btn btn-primary  btn-wafe" type="submit">
                         <span>Submit</span>

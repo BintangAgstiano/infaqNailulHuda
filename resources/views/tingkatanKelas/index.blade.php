@@ -21,45 +21,32 @@
                                 <tr>
                                     <th scope="col" class="text-center">#</th>
                                     <th scope="col">Kelas</th>
-                                    <th scope="col">Jurusan</th>
+              
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="task-list-table">
                                 @foreach ($data as $item)
-                                <tr>
-                                    <td class="fs-13 fw-normal">
-                                        {{ $loop->iteration }}
-                                    <td class="fs-13 fw-normal ">{{ $item['kelas'] }}</td>
-                                    <td class="fs-13 fw-normal">{{ $item['jurusan'] }}</td>
-                                    </td>
-                                    <td>
-                                        <div class="hstack gap-2 fs-15"> <a aria-label="anchor" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-original-title="Mark As Completed"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
-                                                    class="ri-checkbox-circle-line"></i></a> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Delete"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
-                                                    class="ri-delete-bin-5-line"></i></a>
-                                            <div class="dropdown"> <a aria-label="anchor" href="javascript:void(0);"
-                                                    class="btn btn-icon btn-sm btn-outline-primary waves-light waves-effect btn-wave"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="ri-more-2-fill"></i> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-pencil-line me-2"></i>Edit</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-information-line me-2"></i>Info</a>
-                                                    </li>
-                                                </ul>
+                                    <tr>
+                                        <td class="fs-13 fw-normal">
+                                            {{ $loop->iteration }}
+                                        <td class="fs-13 fw-normal ">{{ $item['nama_kelas'] }}</td>
+
+                                        </td>
+                                        <td>
+                                            <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
+                                                    href={{ url('/tingkatankelasedit/'.$item['id'] ) }} data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit"
+                                                    class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a> 
+                                                        <a aria-label="anchor"
+                                                    href={{ url('tingkatankelasdelete/'.$item['id']) }} data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Delete"
+                                                    class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
+                                                        class="ri-delete-bin-5-line"></i></a>
+
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
                                 @endforeach
 
                             </tbody>
@@ -70,7 +57,7 @@
                     <div class="d-block d-sm-flex align-items-center">
                         <div> TOTAL TINGKATAN KELAS: </div>
                         <div class="mt-2 mt-sm-0" style="margin-left: 5px">
-                            <div class="">9</div>
+                            <div class="">{{ count($data) }}</div>
                         </div>
                     </div>
                 </div>
