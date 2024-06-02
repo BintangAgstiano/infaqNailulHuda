@@ -5,16 +5,16 @@
     </div> <!-- Page Header Close --> <!-- Start::row-1 -->
     <div class="card custom-card">
         <div class="card-header justify-content-between">
-            <div class="card-title">Tambah Pemasukan</div>
-            <a href="{{ url('pemasukanview') }}" class="btn btn-primary btn-wave">Table Pemasukan</a>
+            <div class="card-title">Edit Pengeluaran</div>
+            <a href="{{ url('pengeluaranview') }}" class="btn btn-primary btn-wave">Table Pengeluaran</a>
         </div>
         <div class="card-body">
-            <form action="{{route('strorePemasukan')}}" method="POST">
+            <form action="{{route('updatePengeluaran',$data->id)}}" method="POST">
                 @csrf
-
+                @method('PUT')
                 <div class="mb-3">
                     <label for="nominal" class="form-label fs-14 text-dark">Nominal</label>
-                    <input type="text" class="form-control" id="nominal" placeholder="" name="nominal"
+                    <input type="text" value="{{'Rp. '.number_format($data->nominal, 0 ,",", ".")}}" class="text-danger form-control showNom" id="nominal" placeholder="" name="nominal"
                         value="{{ old('nominal') }}">
                     @error('nominal')
                         <div class="text-danger">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="keterangan" class="form-label fs-14 text-dark">Keterangan</label>
-                    <input type="text" value="{{ old('keterangan') }}" class="form-control" id="keterangan" name="keterangan">
+                    <input type="text" value="{{$data->keterangan}}" value="{{ old('keterangan') }}" class="form-control" id="keterangan" name="keterangan">
                     @error('keterangan')
                         <div class="text-danger">
                             {{ $message }}
@@ -33,7 +33,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="date" class="form-label fs-14 text-dark">Tanggal</label>
-                    <input type="date" class="form-control" id="date" placeholder="" name="tanggal"
+                    <input type="date" value="{{$data->tanggal}}" class="form-control" id="date" placeholder="" name="tanggal"
                         value="{{ old('date') }}">
                     @error('tanggal')
                         <div class="text-danger">

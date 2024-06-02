@@ -23,22 +23,31 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('guest')->group(function(){
-    
+
     Route::get('/login', [AuthController::class, 'auth'])->name('login');
     Route::post('/authProses', [AuthController::class, 'authProses']);
 
 });
 
-
-
 Route::middleware('auth')->group(function(){
     Route::get('/', [DashboardController::class, 'view']);
+
+    // pemasukan
     Route::get('/pemasukancreate', [PemasukanController::class, 'create']);
+    Route::get('/pemasukan/edit/{id}', [PemasukanController::class, 'edit']);
+    Route::put('/pemasukan/edit/{id}', [PemasukanController::class, 'update'])->name('updatePemasukan');
     Route::get('/pemasukanview', [PemasukanController::class, 'index']);
-    
+    Route::post('/pemasukans', [PemasukanController::class, 'store'])->name('strorePemasukan');
+    Route::delete('/delete/pemasukan/{id}', [PemasukanController::class, 'delete'])->name('delPemasukan');
+
+    // pengeluaran
     Route::get('/pengeluaran', [PengeluaranController::class, 'create']);
     Route::get('/pengeluaranview', [PengeluaranController::class, 'index']);
-    
+    Route::get('/pengeluaran/edit/{id}', [PengeluaranController::class, 'edit']);
+    Route::post('/pengeluarans', [PengeluaranController::class, 'store'])->name('strorePengeluaran');
+    Route::put('/pengeluaran/edit/{id}', [PengeluaranController::class, 'update'])->name('updatePengeluaran');
+    Route::delete('/delete/pengeluaran/{id}', [PengeluaranController::class, 'delete'])->name('delPengeluaran');
+
     Route::get('/tingkatankelasview', [TingkatanKelasController::class, 'index']);
     Route::get('/tingkatankelas', [TingkatanKelasController::class, 'create']);
     Route::post('/tingkatankelas', [TingkatanKelasController::class, 'store']);
