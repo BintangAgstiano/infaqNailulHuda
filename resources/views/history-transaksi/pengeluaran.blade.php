@@ -17,6 +17,13 @@
                     <div class="table-responsive">
                         <table id="table-pemasukan" class="table table-bordered text-nowrap w-100 dataTable no-footer"
                             aria-describedby="datatable-basic_info">
+                            <div class="d-flex justify-content-between">
+                            <select id="table-select" class="form-select" aria-label="Default select example" style="width: 180px;">
+                                <option value="pengeluaran">Table pengeluaran</option>
+                                <option value="pemasukan">Table pemasukan</option>
+                            </select>
+                            <input type="date" class="form-control" style="width: 175px">
+                        </div>
                             <thead>
                                 <tr>
                                     <th scope="col" class="text-center">#</th>
@@ -108,6 +115,14 @@
         {{-- <script src="{{ asset('pemasukan/index.js') }}"></script> --}}
         <script>
             $("#table-pemasukan").DataTable()
+            document.getElementById('table-select').addEventListener('change', function() {
+                const value = this.value;
+                if (value === 'pengeluaran') {
+                    window.location.href = "{{ url('/pengeluaranview') }}";
+                } if (value === 'pemasukan') {
+                    window.location.href = "{{ url('/pemasukanview') }}";
+                }
+            });
         </script>
     @endpush
 

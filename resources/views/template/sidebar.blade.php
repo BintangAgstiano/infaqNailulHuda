@@ -100,10 +100,7 @@
                                                 <a href={{ url('/pemasukancreate') }} class="side-menu__item">Form
                                                     Pemasukan</a>
                                             </li>
-                                            <li class="slide">
-                                                <a href={{ url('/pemasukanview') }} class="side-menu__item">History
-                                                    Pemasukan</a>
-                                            </li>
+                                           
 
                                         </ul>
                                     </li> <!-- End::slide -->
@@ -127,12 +124,17 @@
                                                 <a href={{ url('pengeluaran') }} class="side-menu__item">Form
                                                     Pengeluaran</a>
                                             </li>
-                                            <li class="slide">
-                                                <a href={{ url('pengeluaranview') }} class="side-menu__item">History
-                                                    Pengeluaran</a>
-                                            </li>
-
+                                          
+                                           
                                         </ul>
+                                        <li class="slide" >
+                                            <a href="{{ url('/pemasukanview') }}"
+                                                class="side-menu__item d-flex  align-items-center justify-content-center">
+                                                <i class="fa-solid fa-lg fa-clock-rotate-left" style="opacity: .8;margin-right: 12px;margin-left: 3px"></i>
+                                                <span class=" side-menu__label" >History Transaksi</span>
+
+                                            </a>
+                                        </li>
                                     </li> <!-- End::slide -->
 
 
