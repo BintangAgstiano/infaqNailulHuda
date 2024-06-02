@@ -12,243 +12,56 @@
     <div class="row">
         <div class="col-xl-12 col-md-12">
             <div class="card custom-card">
-               
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="table-pemasukan" class="table table-bordered text-nowrap w-100 dataTable no-footer"
                             aria-describedby="datatable-basic_info">
                             <thead>
                                 <tr>
-                                    <th scope="col">Kelas</th>
-                                    <th scope="col">Jurusan</th>
-                                    <th scope="col">Total Nominal</th>
-                                    <th scope="col" class="text-center">Tanggal</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Nominal</th>
+                                    <th scope="col">Keterangan</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="task-list-table">
-                                <tr>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>Rekayasa Perangkat Lunak</td>
-                                    <td class="fs-13 fw-normal">Rp 100.000.00</td>
-                                    <td class="text-success text-center">1</td>
-
-                                    <td>
-                                        <div class="hstack gap-2 fs-15"> <a aria-label="anchor" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-original-title="Mark As Completed"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
-                                                    class="ri-checkbox-circle-line"></i></a> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Delete"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
-                                                    class="ri-delete-bin-5-line"></i></a>
-                                            <div class="dropdown"> <a aria-label="anchor" href="javascript:void(0);"
-                                                    class="btn btn-icon btn-sm btn-outline-primary waves-light waves-effect btn-wave"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="ri-more-2-fill"></i> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-pencil-line me-2"></i>Edit</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-information-line me-2"></i>Info</a>
-                                                    </li>
-                                                </ul>
+                                @foreach ($data as $row)
+                                    <tr>
+                                        <td>{{ $row->tanggal }}</td>
+                                        <td style="color: #1c7a17" class="showNom">{{ $row->nominal }}</td>
+                                        <td>{{ $row->keterangan }}</td>
+                                        <td>
+                                            <div class="hstack gap-2 fs-15">
+                                                <a aria-label="anchor" href="/pemasukan/edit/{{ $row->id }}"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit"
+                                                    class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
+                                                        class="ri-pencil-line"></i>
+                                                </a>
+                                                <form class="mb-0 form-delete-{{$row->id}}" action="{{ route('delPemasukan', $row->id) }}" method="POST"
+                                                    class="f-del mb-0">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button
+                                                    data-id="{{$row->id}}"
+                                                    type="submit" aria-label="anchor" data-bs-toggle="tooltip"
+                                                        data-bs-original-title="Delete"
+                                                        class="btn confirm-delete mb-0 btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
+                                                            class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                </form>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>Rekayasa Perangkat Lunak</td>
-                                    <td class="fs-13 fw-normal">Rp 100.000.00</td>
-                                    <td class="text-success text-center">1</td>
-
-                                    <td>
-                                        <div class="hstack gap-2 fs-15"> <a aria-label="anchor" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-original-title="Mark As Completed"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
-                                                    class="ri-checkbox-circle-line"></i></a> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Delete"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
-                                                    class="ri-delete-bin-5-line"></i></a>
-                                            <div class="dropdown"> <a aria-label="anchor" href="javascript:void(0);"
-                                                    class="btn btn-icon btn-sm btn-outline-primary waves-light waves-effect btn-wave"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="ri-more-2-fill"></i> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-pencil-line me-2"></i>Edit</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-information-line me-2"></i>Info</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>Rekayasa Perangkat Lunak</td>
-                                    <td class="fs-13 fw-normal">Rp 100.000.00</td>
-                                    <td class="text-success text-center">1</td>
-
-                                    <td>
-                                        <div class="hstack gap-2 fs-15"> <a aria-label="anchor" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-original-title="Mark As Completed"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
-                                                    class="ri-checkbox-circle-line"></i></a> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Delete"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
-                                                    class="ri-delete-bin-5-line"></i></a>
-                                            <div class="dropdown"> <a aria-label="anchor" href="javascript:void(0);"
-                                                    class="btn btn-icon btn-sm btn-outline-primary waves-light waves-effect btn-wave"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="ri-more-2-fill"></i> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-pencil-line me-2"></i>Edit</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-information-line me-2"></i>Info</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>Rekayasa Perangkat Lunak</td>
-                                    <td class="fs-13 fw-normal">Rp 100.000.00</td>
-                                    <td class="text-success text-center">1</td>
-
-                                    <td>
-                                        <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Mark As Completed"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
-                                                    class="ri-checkbox-circle-line"></i></a> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Delete"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
-                                                    class="ri-delete-bin-5-line"></i></a>
-                                            <div class="dropdown"> <a aria-label="anchor" href="javascript:void(0);"
-                                                    class="btn btn-icon btn-sm btn-outline-primary waves-light waves-effect btn-wave"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="ri-more-2-fill"></i> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-pencil-line me-2"></i>Edit</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-information-line me-2"></i>Info</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>Rekayasa Perangkat Lunak</td>
-                                    <td class="fs-13 fw-normal">Rp 100.000.00</td>
-                                    <td class="text-success text-center">1</td>
-
-                                    <td>
-                                        <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Mark As Completed"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
-                                                    class="ri-checkbox-circle-line"></i></a> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Delete"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
-                                                    class="ri-delete-bin-5-line"></i></a>
-                                            <div class="dropdown"> <a aria-label="anchor" href="javascript:void(0);"
-                                                    class="btn btn-icon btn-sm btn-outline-primary waves-light waves-effect btn-wave"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="ri-more-2-fill"></i> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-pencil-line me-2"></i>Edit</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-information-line me-2"></i>Info</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>Rekayasa Perangkat Lunak</td>
-                                    <td class="fs-13 fw-normal">Rp 100.000.00</td>
-                                    <td class="text-success text-center">1</td>
-
-                                    <td>
-                                        <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Mark As Completed"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-primary"><i
-                                                    class="ri-checkbox-circle-line"></i></a> <a aria-label="anchor"
-                                                href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Delete"
-                                                class="btn btn-icon btn-wave waves-effect waves-light btn-sm btn-outline-secondary"><i
-                                                    class="ri-delete-bin-5-line"></i></a>
-                                            <div class="dropdown"> <a aria-label="anchor" href="javascript:void(0);"
-                                                    class="btn btn-icon btn-sm btn-outline-primary waves-light waves-effect btn-wave"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="ri-more-2-fill"></i> </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-pencil-line me-2"></i>Edit</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-hover"
-                                                            href="javascript:void(0);"><i
-                                                                class="ri-information-line me-2"></i>Info</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
                     <div class="d-block d-sm-flex align-items-center">
-                        <div> TOTAL : </div>
+                        <div> TOTAL PEMASUKAN: </div>
                         <div class="mt-2 mt-sm-0" style="margin-left: 5px">
-                            <div style="color: #1c7a17">Rp 1.000.000.00</div>
+                            <div class="showNom" style="color: #1c7a17">{{ $total }}</div>
                         </div>
                     </div>
                 </div>
@@ -284,6 +97,25 @@
         {{-- <script src="{{ asset('pemasukan/index.js') }}"></script> --}}
         <script>
             $("#table-pemasukan").DataTable()
+            $(".confirm-delete").on("click", function(e) {
+                e.preventDefault()
+                let id = $(this).data('id')
+                console.log(id);
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        console.log('tes');
+                        $(`.form-delete-${id}`).submit()
+                    }
+                });
+            })
         </script>
     @endpush
 

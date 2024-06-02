@@ -1,8 +1,8 @@
 @extends('template.master')
 @section('content')
-   
+
         <!-- Start::app-content -->
-       
+
                 <!-- Page Header -->
                 <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                     <h1 class="page-title fw-semibold fs-20 mb-0">Dashboard</h1>
@@ -21,9 +21,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h3 class="mb-2 fw-semibold fs-18">Rp 1.000.000</h3>
-                                        <p class="text-muted fs-13 mb-0">Total Pemasukan</p>
-        
+                                        <h3 class="mb-2 fw-semibold fs-18 showNom">{{$dana}}</h3>
+                                        <p class="text-muted fs-13 mb-0">Total Dana Masjid</p>
+
                                     </div>
                                     <div class="col col-auto"> <span
                                             class="avatar avatar-lg bg-primary avatar-rounded dash"> <svg
@@ -42,9 +42,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h3 class="mb-2 fw-semibold fs-18">Rp 12,563</h3>
-                                        <p class="text-muted fs-12 mb-0">Total Pengeluaran</p>
-                                       
+                                        <h3 class="mb-2 fw-semibold fs-18 showNom">{{$pengeluaranBulan}}</h3>
+                                        <p class="text-muted fs-12 mb-0">Pengeluaran Bulan ini</p>
+
                                     </div>
                                     <div class="col col-auto">
                                         <div class="avatar avatar-lg bg-secondary avatar-rounded dash"> <svg
@@ -66,7 +66,7 @@
                                     <div class="col">
                                         <h3 class="mb-2 fw-semibold fs-18">{{ count($data) }}</h3>
                                         <p class="text-muted fs-12 mb-0">Total kelas</p>
-                
+
                                     </div>
                                     <div class="col col-auto">
                                         <div class="avatar avatar-lg bg-info avatar-rounded dash"> <svg
@@ -88,7 +88,7 @@
                                     <div class="col">
                                         <h3 class="mb-2 fw-semibold fs-18">3</h3>
                                         <p class="text-muted fs-12 mb-0">Total Role</p>
-                                       
+
                                     </div>
                                     <div class="col col-auto">
                                         <div class="avatar avatar-lg bg-warning avatar-rounded dash"> <svg
@@ -104,8 +104,8 @@
                         </div>
                     </div>
                 </div> <!--End::row-1 --> <!--Start::row-2 -->
-                
-               
+
+
                 </div> <!--End::row-3 --> <!--Start::row-4 -->
                 <div class="row">
                     <div class="col-xl-12 col-md-12">
@@ -137,7 +137,7 @@
                                                 <td>Rekayasa Perangkat Lunak</td>
                                                 <td class="fs-13 fw-normal">Rp 100.000.00</td>
                                                 <td class="text-success text-center">1</td>
-                                               
+
                                                 <td>
                                                     <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
                                                             href="javascript:void(0);" data-bs-toggle="tooltip"
@@ -174,7 +174,7 @@
                                                 <td>Rekayasa Perangkat Lunak</td>
                                                 <td class="fs-13 fw-normal">Rp 100.000.00</td>
                                                 <td class="text-success text-center">1</td>
-                                               
+
                                                 <td>
                                                     <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
                                                             href="javascript:void(0);" data-bs-toggle="tooltip"
@@ -211,7 +211,7 @@
                                                 <td>Rekayasa Perangkat Lunak</td>
                                                 <td class="fs-13 fw-normal">Rp 100.000.00</td>
                                                 <td class="text-success text-center">1</td>
-                                               
+
                                                 <td>
                                                     <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
                                                             href="javascript:void(0);" data-bs-toggle="tooltip"
@@ -248,7 +248,7 @@
                                                 <td>Rekayasa Perangkat Lunak</td>
                                                 <td class="fs-13 fw-normal">Rp 100.000.00</td>
                                                 <td class="text-success text-center">1</td>
-                                               
+
                                                 <td>
                                                     <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
                                                             href="javascript:void(0);" data-bs-toggle="tooltip"
@@ -285,7 +285,7 @@
                                                 <td>Rekayasa Perangkat Lunak</td>
                                                 <td class="fs-13 fw-normal">Rp 100.000.00</td>
                                                 <td class="text-success text-center">1</td>
-                                               
+
                                                 <td>
                                                     <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
                                                             href="javascript:void(0);" data-bs-toggle="tooltip"
@@ -322,7 +322,7 @@
                                                 <td>Rekayasa Perangkat Lunak</td>
                                                 <td class="fs-13 fw-normal">Rp 100.000.00</td>
                                                 <td class="text-success text-center">1</td>
-                                               
+
                                                 <td>
                                                     <div class="hstack gap-2 fs-15"> <a aria-label="anchor"
                                                             href="javascript:void(0);" data-bs-toggle="tooltip"
@@ -373,7 +373,7 @@
                                     </div>
                                 </div>
                             </div>
-                       
+
                 </div> <!--End::row-4 -->
             </div>
         </div>

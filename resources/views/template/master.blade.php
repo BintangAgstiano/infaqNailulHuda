@@ -45,7 +45,7 @@
         <!-- End::app-sidebar -->
         <div class="main-content app-content">
             <div class="container-fluid">
-               
+
                 @yield('content')
             </div>
         </div>
@@ -65,6 +65,8 @@
     <script src={{ asset('noa-assets/assets/js/simplebar.js') }}></script>
     <!-- Custom JS -->
     <script src={{ asset('noa-assets/assets/js/custom.js') }}></script>
+
+    <script src="{{asset('helper/formatRupiah.js')}}"></script>
 
     @stack('scripts')
 </body>
