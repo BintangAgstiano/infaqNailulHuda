@@ -14,7 +14,6 @@
                 </div>
                 <form class="card custom-card" action="{{ url('/authProses') }}" method="post">
                     @csrf
-                   
                     <div class="card-body p-4 pb-3">
                         <h4 class="fw-semibold mb-4 text-center">Login</h4>
                         @if (session()->has('error'))
